@@ -8,12 +8,6 @@
         },
         {
             "text": "IDF Notebook",
-            "target": "ESPIDF-LVGL-NoteBook/vx.json",
-            "navi": true,
-            "navi_expand_level": 1
-        },
-        {
-            "text": "IDF Notebook Readme",
             "target": "ESPIDF-LVGL-NoteBook/Readme.md",
             "navi": true,
             "navi_expand_level": 1
