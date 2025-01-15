@@ -8,8 +8,9 @@
         },
         {
             "text": "IDF Notebook",
-            "target": "ESPIDF-LVGL-NoteBook/Readme.md",
+            "target": "ESPIDF-LVGL-NoteBook/vx.json",
             "navi": true,
+            "navi_index": "Readme.md",
             "navi_expand_level": 1
         }
     ],
