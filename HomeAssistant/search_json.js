@@ -1,25 +1,25 @@
 window.ydoc_plugin_search_json = {
-  "documents": [
+  "HA": [
     {
-      "title": "ydoc",
+      "title": "HA",
       "content": "This is home page of documents book.",
-      "url": "\\documents\\index.html",
+      "url": "\\homeassistant\\index.html",
       "children": []
     },
     {
-      "title": "Installation",
+      "title": "HA 本地服务器的安装",
       "content": "...",
-      "url": "\\documents\\installation.html",
+      "url": "\\homeassistant\\installation.html",
       "children": []
     },
     {
       "title": "Introduction",
       "content": "Introduction",
-      "url": "\\documents\\intro.html",
+      "url": "\\homeassistant\\intro.html",
       "children": [
         {
           "title": "title",
-          "url": "\\documents\\intro.html#title",
+          "url": "\\homeassistant\\intro.html#title",
           "content": "titlecontent"
         }
       ]
@@ -27,16 +27,102 @@ window.ydoc_plugin_search_json = {
     {
       "title": "env",
       "content": "env",
-      "url": "\\documents\\env.html",
+      "url": "\\homeassistant\\env.html",
       "children": [
         {
           "title": "title",
-          "url": "\\documents\\env.html#title",
+          "url": "\\homeassistant\\env.html#title",
           "content": "titlecontent"
         },
         {
           "title": "sub-title",
-          "url": "\\documents\\env.html#title-sub-title",
+          "url": "\\homeassistant\\env.html#title-sub-title",
+          "content": "sub-titlecontent"
+        }
+      ]
+    }
+  ],
+  "Node-Red": [
+    {
+      "title": "Node Red",
+      "content": "This is home page of documents book.",
+      "url": "\\nodered\\index.html",
+      "children": []
+    },
+    {
+      "title": "Installation",
+      "content": "...",
+      "url": "\\nodered\\installation.html",
+      "children": []
+    },
+    {
+      "title": "Introduction",
+      "content": "Introduction",
+      "url": "\\nodered\\intro.html",
+      "children": [
+        {
+          "title": "title",
+          "url": "\\nodered\\intro.html#title",
+          "content": "titlecontent"
+        }
+      ]
+    },
+    {
+      "title": "env",
+      "content": "env",
+      "url": "\\nodered\\env.html",
+      "children": [
+        {
+          "title": "title",
+          "url": "\\nodered\\env.html#title",
+          "content": "titlecontent"
+        },
+        {
+          "title": "sub-title",
+          "url": "\\nodered\\env.html#title-sub-title",
+          "content": "sub-titlecontent"
+        }
+      ]
+    }
+  ],
+  "ESPHome": [
+    {
+      "title": "ESPHome",
+      "content": "This is home page of documents book.",
+      "url": "\\esphome\\index.html",
+      "children": []
+    },
+    {
+      "title": "Installation",
+      "content": "...",
+      "url": "\\esphome\\installation.html",
+      "children": []
+    },
+    {
+      "title": "Introduction",
+      "content": "Introduction",
+      "url": "\\esphome\\intro.html",
+      "children": [
+        {
+          "title": "title",
+          "url": "\\esphome\\intro.html#title",
+          "content": "titlecontent"
+        }
+      ]
+    },
+    {
+      "title": "env",
+      "content": "env",
+      "url": "\\esphome\\env.html",
+      "children": [
+        {
+          "title": "title",
+          "url": "\\esphome\\env.html#title",
+          "content": "titlecontent"
+        },
+        {
+          "title": "sub-title",
+          "url": "\\esphome\\env.html#title-sub-title",
           "content": "sub-titlecontent"
         }
       ]

@@ -1,5 +1,7 @@
-# YDoc
-![logo](ydoc/images/dog@1x.png)
+# HomeAssitant Doc
+![logo](images/Home_Assistant_Logo.png)
 
-* [documents](/documents/index.md)
+* [HA](/homeassistant/index.md)
+* [Node-Red](/nodered/index.md)
+* [ESPHome](/esphome/index.md)
 * [about](/about/index.html)

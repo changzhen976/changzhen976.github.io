@@ -1,24 +1,26 @@
 ---
 banner:
-  name: '更懂你的文档站构建工具'
-  desc: '基于 markdown 轻松生成完整静态站点'
+  name: 'HomeAssistant 配置文档'
+  desc: '基于HomeAssistant平台, 集成相关组件及配置'
   btns: 
-    - { name: '开 始', href: './documents/index.html', primary: true }
-    - { name: 'Github >', href: 'https://github.com/YMFE/ydoc' }
-  caption: '当前版本: v4.1.3'
+    - { name: '登录本地HA', href: 'http://homeassistant:8123', primary: true }
+    - { name: 'HA官网 >', href: 'https://www.home-assistant.io/' }
+  caption: '当前版本: v0.0.2'
 features: 
-  - { name: '优雅', desc: '经过精雕细琢，我们带给大家一个精心设计的、拥有卓越的视觉与交互体验的文档构建工具' }
-  - { name: '灵动', desc: '我们拥有非常灵活的 插件机制 与 主题定制 功能，正在努力构建活跃的插件社区。也许初次使用未见其惊艳，但当你灵活使用插件后便会发现她的强大' }
-  - { name: '简洁', desc: '以 ‘无形’ 代替 ‘有形’，从开发体验到用户界面的呈现，不断去除冗余的设计，使用户专注于写作与阅读' }
-  - { name: '开源', desc: '作为开源项目，我们拥有高质量的代码、完善的自动化测试流程，对社区的需求能够作出积极快速响应' }
+  - { name: 'HA基础配置', desc: 'HomeAssitant的基础配置' }
+  - { name: 'Node Red', desc: '图形化编程脚本工具, 与HA搭配完成复杂自动化' }
+  - { name: 'ESPHome', desc: '使用Yaml执行为ESP控制器编程' }
+  - { name: 'MQTT Server', desc: 'MQTT物联网常用协议, DIY的控制器可用过该统一协议完成通信' }
 
 footer:
   copyRight:
-    name: 'Changzhen'
+    name: 'Changzhen Liu'
     href: 'https://github.com/changzhen976'
   links:
+    邮箱:
+      - { name: 'Email: changzhen976@gmail.com', href: 'mailto:changzhen976@gmail.com'}
     Git仓库:
-      - { name: 'Github', href: 'https://github.com/changzhen976/changzhen976.github.io.git' }
+      - { name: 'Github', href: 'https://changzhen976.github.io/' }
 
 ---
 
