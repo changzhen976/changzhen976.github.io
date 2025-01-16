@@ -14,15 +14,11 @@ features:
 
 footer:
   copyRight:
-    name: 'YMFE Team'
-    href: 'https://ymfe.org/'
+    name: 'Changzhen'
+    href: 'https://github.com/changzhen976'
   links:
-    团队网址:
-      - { name: 'YMFE', href: 'https://ymfe.org/' }
-      - { name: 'YMFE Blog', href: 'https://blog.ymfe.org/' }
     Git仓库:
-      - { name: 'Github', href: 'https://github.com/YMFE/ydoc' }
-      - { name: 'Github Issue', href: 'https://github.com/YMFE/ydoc/issues' }
+      - { name: 'Github', href: 'https://github.com/changzhen976/changzhen976.github.io.git' }
 
 ---
 
