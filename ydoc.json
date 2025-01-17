@@ -1,6 +1,6 @@
 {
-  "title": "HomeAssistant Config Manual",
-  "description": "HomeAssistant config document",
+  "title": "Simulink Code Generation",
+  "description": "Simulink Code Generation Manual",
   "author": "Changzhen",
-  "dist": "HomeAssistant"
+  "dist": "Matlab"
 }

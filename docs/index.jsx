@@ -1,16 +1,16 @@
 ---
 banner:
-  name: 'HomeAssistant 配置文档'
-  desc: '基于HomeAssistant平台, 集成相关组件及配置'
+  name: 'Simulink代码生成及集成文档'
+  desc: '基于Simulink平台, 生成c代码并集成到控制器中运行 (作者没有前端基础, 正在摸索)'
   btns: 
-    - { name: '登录本地HA', href: 'http://homeassistant:8123', primary: true }
+    - { name: '官方文档', href: 'http://homeassistant:8123', primary: true }
     - { name: 'HA官网 >', href: 'https://www.home-assistant.io/' }
   caption: '当前版本: v0.0.2'
 features: 
-  - { name: 'HA基础配置', desc: 'HomeAssitant的基础配置' }
-  - { name: 'Node Red', desc: '图形化编程脚本工具, 与HA搭配完成复杂自动化' }
-  - { name: 'ESPHome', desc: '使用Yaml执行为ESP控制器编程' }
-  - { name: 'MQTT Server', desc: 'MQTT物联网常用协议, DIY的控制器可用过该统一协议完成通信' }
+  - { name: '图形化编程', desc: '低代码搭建模型' }
+  - { name: '高度自定义仿真', desc: '既可为最小单元搭建仿真模型, 也可将各模型集合联合仿真' }
+  - { name: '离线Debug', desc: '采集到控制器内部数据, 可便利搭建仿真模型复原模型内部每个时刻的状态' }
+  - { name: '强大的自动化脚本', desc: '与m语言高度适配, 大幅度辅助模型搭建与仿真, 减少重复工作' }
 
 footer:
   copyRight:
