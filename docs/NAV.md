@@ -1,5 +1,5 @@
 # SimuDoc
-![logo](images/simulink_icon.png)
+![logo](images/simulink.png)
 
 * [基本知识](/introduct/index.md)
 * [模型搭建](/model/index.md)
