@@ -62,8 +62,8 @@ window.ydoc_plugin_search_json = {
   ],
   "模型搭建": [
     {
-      "title": "HA",
-      "content": "This is home page of documents book.",
+      "title": "模型搭建规则及技巧",
+      "content": "用于存放模型搭建规则和技巧",
       "url": "\\model\\index.html",
       "children": []
     },
@@ -105,8 +105,8 @@ window.ydoc_plugin_search_json = {
   ],
   "代码生成与集成": [
     {
-      "title": "HA",
-      "content": "This is home page of documents book.",
+      "title": "代码生成",
+      "content": "该目录下放置代码生成中的一些知识与技巧",
       "url": "\\codegenerate\\index.html",
       "children": []
     }
@@ -116,6 +116,14 @@ window.ydoc_plugin_search_json = {
       "title": "HA",
       "content": "This is home page of documents book.",
       "url": "\\script\\index.html",
+      "children": []
+    }
+  ],
+  "博客": [
+    {
+      "title": "Blogs",
+      "content": "该页面用于存放专题博客",
+      "url": "\\blogs\\index.html",
       "children": []
     }
   ]

@@ -1,2 +1,3 @@
-# HA
-This is home page of documents book.
+# 代码生成
+
+该目录下放置代码生成中的一些知识与技巧
