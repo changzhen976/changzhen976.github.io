@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="UTF-8"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><link rel="apple-touch-icon" sizes="180x180" href="..\ydoc\images\apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="..\ydoc\images\favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="..\ydoc\images\favicon-16x16.png"/><link rel="manifest" href="..\ydoc\images\manifest.json"/><link rel="mask-icon" href="..\ydoc\images\safari-pinned-tab.svg" color="#5bbad5"/><meta name="theme-color" content="#ffffff"/><meta http-equiv="Cache-Control" content="no-transform"/><meta http-equiv="Cache-Control" content="no-siteapp"/><title>数据的存储常见的数据存储方式-博客</title><link rel="stylesheet" href="..\ydoc\styles\style.css"/><meta name="author" content="Changzhen"/><meta name="keywords"/><meta name="description" content="Simulink Code Generation Manual"/><meta id="releativePath" content=".."/><link rel="stylesheet" href="..\ydoc\ydoc-plugin-search\search.css"/></head><body><div class="g-doc"><div class="m-aside"><div class="m-summary" id="js-menu"><div class="m-summary-content" id="js-menu-content"><div class="m-summary-block"><div class="m-summary-title">理论</div><ul class="m-summary-list indent"><li class="item"><a href="" class="href">数据的存储</a></li><li class="item"><a href="script2modifymodel.html" class="href">使用脚本修改模型</a></li></ul></div></div></div><div class="m-summary-switch" id="js-summary-switch"><svg viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="15" height="15" class="bottom"><g transform="translate(904.92214,-879.1482)"><path d="m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,-55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,-174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,-174.68583 0.6895,0 26.281,25.03215 56.8701,55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864-231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,-104.0616 -231.873,-231.248 z" fill="#fff"></path></g></svg><svg viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="15" height="15" class="top"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="aaa" fill="#fff" fill-rule="nonzero"><path d="M231.2455,342.502 L0,111.25397 L55.6165,55.62697 C86.2056,25.03212 111.7971,-2.99999998e-05 112.4866,-2.99999998e-05 C113.176,-2.99999998e-05 192.3503,78.60859 288.4293,174.6858 L463.1185,349.3716 L637.8077,174.6858 C733.8867,78.60859 813.060896,-2.99999997e-05 813.750396,-2.99999997e-05 C814.439896,-2.99999997e-05 840.031396,25.03212 870.620496,55.62697 L926.236996,111.25397 L694.9915,342.502 C567.8065,469.6884 463.4636,573.75 463.1185,573.75 C462.7734,573.75 358.4305,469.6884 231.2455,342.502 Z" id="Shape" transform="translate(463.118498, 286.874985) scale(1, -1) translate(-463.118498, -286.874985) "></path></g></g></svg></div></div><div class="m-main" id="js-panel"><header class="m-header" id="js-header"><div class="m-header-title js-logo"><a href="..\index.html" target="_self"><img class="logo" width="36" src="..\images\simulink.png" srcSet="..\images\simulink.png 2x"/><h6 class="name">SimuDoc</h6></a></div><div><div class="m-search">
+      <div class="icon">&#xf0fd;</div>
+      <input type="text" class="input js-input" placeholder="搜索" />
+      <div class="m-search-result js-search-result"></div>
+    </div></div><nav class="m-header-nav js-nav"><ul class="m-header-items"><li class="item "><a class="href" href="..\introduct\index.html">基本知识</a></li><li class="item "><a class="href" href="..\model\index.html">模型搭建</a></li><li class="item "><a class="href" href="..\codegenerate\index.html">代码生成与集成</a></li><li class="item "><a class="href" href="..\script\index.html">m脚本</a></li><li class="item active"><a class="href" href="index.html">博客</a></li><li class="item "><a class="href" href="..\about\index.html">关于</a></li></ul></nav><div id="js-nav-btn" class="m-header-btn ui-font-ydoc"></div></header><div class="m-content" id="js-content"><div id="markdown-body" class="m-content-container markdown-body"><h1>数据的存储</h1>
+<blockquote>
+<p>在模型搭建中, 我们会使用到各种各样的数据, 输入 输出 参数 自定义信号等</p>
+<p>对于一个数据来讲, 又包含其数据类型的指定, 数值设定. 如果涉及到代码生成, 还要关注其在代码中声明和定义的方式</p>
+<p>Simulink模型搭建模型仿真时可以比较随意的设置, 很少影响仿真结果, 但当需要代码生成时, 相关变量的定义与使用要求就会比较严格, 避免代码集成时造成编译错误</p>
+</blockquote>
+<h1>常见的数据存储方式</h1>
+<h2 id="存放在m脚本中">存放在m脚本中</h2>
+<blockquote>
+<p>在m脚本中依次定义数值</p>
+</blockquote>
+<h3 id="存放在m脚本中-定义参数parameter">定义参数(Parameter)</h3>
+<pre><code class="language-m">% define &#x60;Param01&#x60; as a Paramenter
+Param01 = Simulink.Parameter;
+% set default value as 1
+Param01.Value = 1;
+Param01.Complexity = &#x27;real&#x27;;
+% &#x60;CodeInfo&#x60; define properties which influence how code generate
+Param01.CoderInfo.StorageClass = &#x27;Custom&#x27;;
+Param01.CoderInfo.Identifier = &#x27;&#x27;;
+Param01.CoderInfo.Alignment = -1;
+% when generate, Model whill include &#x3C;demo.h&#x3E; which defined Param01
+Param01.CoderInfo.CustomStorageClass = &#x27;ImportFromFile&#x27;;
+Param01.CoderInfo.CustomAttributes.HeaderFile = &#x27;demo.h&#x27;;
+Param01.CoderInfo.CustomAttributes.PreserveDimensions = false;
+Param01.Description = &#x27;Parameter export Demo for blog&#x27;;
+Param01.DataType = &#x27;uint8&#x27;;
+Param01.Min = 0;
+Param01.Max = 15;
+Param01.DocUnits = &#x27;m&#x27;;
+</code></pre>
+<p>将上述命令保存为一个m文件并运行, 此时工作区能生成一个Parameter变量, 其属性与命令行定义一致</p>
+<p>生成c代码:</p>
+<pre><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"demo.h"</span></span>
+</code></pre>
+<h3 id="存放在m脚本中-定义数据类型aliastype">定义数据类型(AliasType)</h3>
+<p>m命令定义</p>
+<pre><code class="language-m">Demo_U8 = Simulink.AliasType;
+Demo_U8.Description = &#x27;&#x27;;
+Demo_U8.DataScope = &#x27;Auto&#x27;;
+Demo_U8.HeaderFile = &#x27;&#x27;;
+Demo_U8.BaseType = &#x27;uint8&#x27;;
+</code></pre>
+<p>生成c代码:</p>
+<pre><code class="language-c"><span class="token keyword">typedef</span> uint8_T Demo_U8<span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<h3 id="存放在m脚本中-其他注意事项">其他注意事项</h3>
+<blockquote>
+<p>除以上外, 常用的 还可以定义枚举, 总线(bus 对应代码中的结构体类型)等等</p>
+<p>可以将各种各样的定义全部汇集到一个m文件中, 模型需要运行时运行该文件, 可依次在工作区内新建各种类型与变量</p>
+<p><strong>m文件执行时按照从上至下的顺序执行, 因此, 数据类型的定义一定要先于用到该类型变量的定义, 否则运行时会报错</strong></p>
+</blockquote>
+<p>m脚本基础结构</p>
+<ol>
+<li>base data type define(Alias Enum)</li>
+<li>bus define(in case bus element using costume base datatype)</li>
+<li>signal parameter define</li>
+</ol>
+<blockquote>
+<p><strong>m脚本必须运行数据方可加载到工作区</strong>, 所以每次在模型编译前, 务必保证所需要的数据均已加载</p>
+</blockquote>
+<h2 id="存放在数据词典sldd中">存放在数据词典(sldd)中</h2>
+<blockquote>
+<p>数据词典(sldd)类似于一个工作区, 其中可定义各种各样的数据类型及变量, 当打开该词典时, m命令和Simulnk模型可获取其中的内容</p>
+<p>sldd提供可视化的操作界面, 可以拜托命令行的限值, 方面维护</p>
+</blockquote>
+<h3 id="存放在数据词典sldd中-sldd新建">sldd新建</h3>
+<p><em><strong>命令行新建</strong></em></p>
+<p>略</p>
+<p><em><strong>模型资源浏览器(Model Explorer)新建</strong></em></p>
+<blockquote>
+<p>在模型空白处点击鼠标右键, 选择第一个<code>Explorer</code>即可打开</p>
+<p>如没有模型, 可在Matlab命令行输入<code>daexplr</code>打开</p>
+</blockquote>
+<p><code>文件-&gt; 新建</code> 选择数据词典</p>
+<p><img src="vx_images/2224634137270.png" alt="新建sldd"></p>
+<h3 id="存放在数据词典sldd中-sldd操作">sldd操作</h3>
+<p><em><strong>新增属性或变量</strong></em></p>
+<p>选中sldd中的<code>Design Data</code>, 工具栏中<code>添加</code>即可添加各种类型与变量</p>
+<p><img src="vx_images/238063229557906.png" alt="sldd添加属性"></p>
+<blockquote>
+<p>基础工作区也可使用操作, 选中<code>Base Workspace</code>即可</p>
+</blockquote>
+<p><em><strong>数据在基础工作区与sldd之前的移动与复制</strong></em></p>
+<p>在模型资源浏览器中, sldd中的数据和工作区中的数据可任意剪切复制, 且支持拖动操作. 故如果要将由m脚本存储的数据转换为由sldd维护, 可运行m脚本将数据加载至基础工作区, 打开资源浏览器, 选中基础工作区内的所有变量, 直接拖入sldd中保存即可</p>
+<p><em><strong>sldd与模型的链接</strong></em></p>
+<p>模型属性中可链接到其需要引用的sldd文件, 引用后打开模型时会自动加载sldd, 可省去手动打开sldd的麻烦</p>
+<p><img src="vx_images/176716201240099.png" alt="模型链接sldd"></p>
+<h3 id="存放在数据词典sldd中-sldd的嵌套">sldd的嵌套</h3>
+<p>在Matlab设计中, 一个模型只可引用一个数据词典, 如果数据类型, 标定参数, 信号量在多个数据词典中维护时, 需要使用sldd的嵌套</p>
+<p>所谓sldd嵌套, 是因为sldd可以引用另外的sldd
+sldd的引用规则与<a href="#%E5%85%B6%E4%BB%96%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">m语言定义数据结构</a>类似, 此sldd引用到的数据类型定义, 必须在引用的sldd中体现, 具体如下:</p>
+<p><img src="vx_images/210325128790066.png" alt="sldd引用结构"></p>
+<p><img src="vx_images/203044445537705.png" alt="依存关系分析"></p>
+<blockquote>
+<p><code>Demo.sldd</code>中使用了由<code>bus_dd.sldd</code>定义的总线;</p>
+<p><code>bus_dd.sldd</code>总线元素中使用了由<code>Enum_dd.sldd</code>定义的枚举</p>
+</blockquote>
+</div><div class="m-content-container m-paging"><div class="m-paging-prev m-paging-item"><a href="index.html" class="href"><span class="ui-font-ydoc"></span>博客</a></div><div class="m-paging-next m-paging-item"><a href="script2modifymodel.html" class="href">使用脚本修改模型<span class="ui-font-ydoc"></span></a></div></div></div></div></div><div></div><script>
+    var $content = document.getElementById('js-content');
+    var $summaryItems = Array.prototype.slice.call(document.querySelectorAll('#js-menu .href'));
+    var $menu = document.getElementById('js-menu');
+    if (sessionStorage.prevPathname) {
+      sessionStorage.setItem('prevPrevPathname', sessionStorage.prevPathname);
+      sessionStorage.setItem('prevPrevMenuScrollTop', sessionStorage.prevMenuScrollTop);
+      sessionStorage.setItem('prevPrevContentScrollTop', sessionStorage.prevContentScrollTop);
+    }
+    if (sessionStorage.locationPathname) {
+      sessionStorage.setItem('prevPathname', sessionStorage.locationPathname);
+      sessionStorage.setItem('prevMenuScrollTop', sessionStorage.menuScrollTop);
+      sessionStorage.setItem('prevContentScrollTop', sessionStorage.contentScrollTop);
+    }
+    if ($menu && sessionStorage.menuScrollTop) {
+		  $menu.scrollTop = sessionStorage.menuScrollTop;
+    }
+    // 刷新页面但不切换 pathname 的时候，内容区恢复到记忆的高度
+    if ($content && sessionStorage.contentScrollTop && window.location.pathname == sessionStorage.locationPathname) {
+      $content.scrollTop = sessionStorage.contentScrollTop;
+    } else if (sessionStorage.prevPrevPathname && sessionStorage.prevPrevPathname === window.location.pathname) {
+      if ($menu && sessionStorage.prevPrevMenuScrollTop) {
+        $menu.scrollTop = sessionStorage.prevPrevMenuScrollTop;
+      }
+      if ($content && sessionStorage.prevPrevContentScrollTop) {
+        $content.scrollTop = sessionStorage.prevPrevContentScrollTop;
+      }
+    }
+    sessionStorage.setItem('locationPathname', window.location.pathname);
+    </script><script src="..\ydoc\scripts\plugins\dollar.min.js"></script><script src="..\ydoc\scripts\plugins\responsive-nav.min.js"></script><script src="..\ydoc\scripts\plugins\slideout.min.js"></script><script src="..\ydoc\scripts\app.js"></script><script src="..\ydoc\ydoc-plugin-search\core.js"></script><script src="..\ydoc\ydoc-plugin-search\search.js"></script><script src="..\search_json.js"></script></body></html>

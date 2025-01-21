@@ -7,9 +7,9 @@ banner:
     - { name: 'Github >', href: 'https://github.com/changzhen976/Simulink-Demo.git' }
   caption: '当前版本: v0.0.2'
 features: 
-  - { name: '博客精选', desc: '博客中比较关键的篇章', href: './blogs/index.html' }
-  - { name: '博客精选', desc: '经常遇到的问题解答', href: './blogs/index.html' }
-  - { name: '博客精选', desc: '或者正在编写的, 可能存在遗漏的篇幅', href: './blogs/index.html' }
+  - { name: '博客精选', desc: '博客主要用于专题讲解, 在整理后会并入文档', href: './blogs/index.html' }
+  - { name: '使用脚本修改模型', desc: '详解如何获取模型中模块的属性,如何修改,以及一些编程经验', href: './blogs/script2modifymodel.html' }
+  - { name: 'Simulink 数据的存储', desc: '在模型搭建, 代码生成中, 数据在模型中储存类型已经代码生成样式', href: './blogs/datastorage.html' }
 footer:
   copyRight:
     name: 'Changzhen Liu'

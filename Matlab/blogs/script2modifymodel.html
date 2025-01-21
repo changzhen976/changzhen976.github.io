@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="UTF-8"/><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"/><link rel="apple-touch-icon" sizes="180x180" href="..\ydoc\images\apple-touch-icon.png"/><link rel="icon" type="image/png" sizes="32x32" href="..\ydoc\images\favicon-32x32.png"/><link rel="icon" type="image/png" sizes="16x16" href="..\ydoc\images\favicon-16x16.png"/><link rel="manifest" href="..\ydoc\images\manifest.json"/><link rel="mask-icon" href="..\ydoc\images\safari-pinned-tab.svg" color="#5bbad5"/><meta name="theme-color" content="#ffffff"/><meta http-equiv="Cache-Control" content="no-transform"/><meta http-equiv="Cache-Control" content="no-siteapp"/><title>使用脚本修改模型-博客</title><link rel="stylesheet" href="..\ydoc\styles\style.css"/><meta name="author" content="Changzhen"/><meta name="keywords"/><meta name="description" content="Simulink Code Generation Manual"/><meta id="releativePath" content=".."/><link rel="stylesheet" href="..\ydoc\ydoc-plugin-search\search.css"/></head><body><div class="g-doc"><div class="m-aside"><div class="m-summary" id="js-menu"><div class="m-summary-content" id="js-menu-content"><div class="m-summary-block"><div class="m-summary-title">理论</div><ul class="m-summary-list indent"><li class="item"><a href="datastorage.html" class="href">数据的存储</a></li><li class="item"><a href="" class="href">使用脚本修改模型</a></li></ul></div></div></div><div class="m-summary-switch" id="js-summary-switch"><svg viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="15" height="15" class="bottom"><g transform="translate(904.92214,-879.1482)"><path d="m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,-55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,-174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,-174.68583 0.6895,0 26.281,25.03215 56.8701,55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864-231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,-104.0616 -231.873,-231.248 z" fill="#fff"></path></g></svg><svg viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="15" height="15" class="top"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="aaa" fill="#fff" fill-rule="nonzero"><path d="M231.2455,342.502 L0,111.25397 L55.6165,55.62697 C86.2056,25.03212 111.7971,-2.99999998e-05 112.4866,-2.99999998e-05 C113.176,-2.99999998e-05 192.3503,78.60859 288.4293,174.6858 L463.1185,349.3716 L637.8077,174.6858 C733.8867,78.60859 813.060896,-2.99999997e-05 813.750396,-2.99999997e-05 C814.439896,-2.99999997e-05 840.031396,25.03212 870.620496,55.62697 L926.236996,111.25397 L694.9915,342.502 C567.8065,469.6884 463.4636,573.75 463.1185,573.75 C462.7734,573.75 358.4305,469.6884 231.2455,342.502 Z" id="Shape" transform="translate(463.118498, 286.874985) scale(1, -1) translate(-463.118498, -286.874985) "></path></g></g></svg></div></div><div class="m-main" id="js-panel"><header class="m-header" id="js-header"><div class="m-header-title js-logo"><a href="..\index.html" target="_self"><img class="logo" width="36" src="..\images\simulink.png" srcSet="..\images\simulink.png 2x"/><h6 class="name">SimuDoc</h6></a></div><div><div class="m-search">
+      <div class="icon">&#xf0fd;</div>
+      <input type="text" class="input js-input" placeholder="搜索" />
+      <div class="m-search-result js-search-result"></div>
+    </div></div><nav class="m-header-nav js-nav"><ul class="m-header-items"><li class="item "><a class="href" href="..\introduct\index.html">基本知识</a></li><li class="item "><a class="href" href="..\model\index.html">模型搭建</a></li><li class="item "><a class="href" href="..\codegenerate\index.html">代码生成与集成</a></li><li class="item "><a class="href" href="..\script\index.html">m脚本</a></li><li class="item active"><a class="href" href="index.html">博客</a></li><li class="item "><a class="href" href="..\about\index.html">关于</a></li></ul></nav><div id="js-nav-btn" class="m-header-btn ui-font-ydoc"></div></header><div class="m-content" id="js-content"><div id="markdown-body" class="m-content-container markdown-body"><h1>使用脚本修改模型</h1>
+<blockquote>
+<p>Matlab提供了强大的m命令, 可以通过脚本实现几乎所有个人用户能执行的操作, 甚至更加快捷</p>
+</blockquote>
+<h2 id="句柄的引入">句柄的引入</h2>
+<p>针对模型的命令行操作, 需要有面向对象的思维, 在模型中, 每个模块每条信号线都是一个对象, 每个模块的端口也可以看作一个对象, 信号的起点与终点也可以看作一个对象</p>
+<p>对于每个对象, Simulink均分配了一个独一无二的id, 该id就是句柄</p>
+<h3 id="句柄的引入-获取句柄">获取句柄</h3>
+<pre><code class="language-m">Handles = find_system(bdroot, &#x27;FindAll&#x27;,&#x27;on&#x27;,&#x27;type&#x27;,&#x27;block&#x27;,&#x27;BlockType&#x27;,&#x27;Inport&#x27;);
+</code></pre>
+<p>可通过<code>find_system</code>命令获取句柄, 后面参数包括目标模型, 搜索类型, 模块类型, 以上命令可以理解为&quot;搜索当前激活的模型中所有的<code>Inpot</code>模块的句柄&quot;</p>
+<p>返回值为一个数组 <code>[1.773000976562500e+03;1.775000732421875e+03]</code></p>
+<blockquote>
+<p><strong>数组类型很重要</strong>, Matlab内置了丰富的针对数组的操作, 可用类似的函数处理, 减少不必要的for循环</p>
+</blockquote>
+<h3 id="句柄的引入-获取属性">获取属性</h3>
+<blockquote>
+<p>句柄为特定格式, 无法从句柄中获取可读信息, 可通过进一步操作获取模块的属性</p>
+</blockquote>
+<pre><code class="language-m">get(Handles(1))
+</code></pre>
+<p>通过<code>get</code>获取句柄1的属性(内容非常非常多)</p>
+<pre><code class="language-m">&#x3E;&#x3E; get(Handles(2))
+                                        Path: &#x27;test/increase&#x27;
+                                        Name: &#x27;input&#x27;
+                                         Tag: &#x27;&#x27;
+                                 Description: &#x27;&#x27;
+                                        Type: &#x27;block&#x27;
+                                      Parent: &#x27;test/increase&#x27;
+                                      Handle: 1.7750e+03
+                             HiliteAncestors: &#x27;none&#x27;
+                             RequirementInfo: &#x27;&#x27;
+                                    FontName: &#x27;auto&#x27;
+                                    FontSize: -1
+                                  FontWeight: &#x27;auto&#x27;
+                                   FontAngle: &#x27;auto&#x27;
+                                    Selected: &#x27;off&#x27;
+                                    MaskType: &#x27;&#x27;
+                             MaskDescription: &#x27;&#x27;
+                                    MaskHelp: &#x27;&#x27;
+                            MaskPromptString: &#x27;&#x27;
+                             MaskStyleString: &#x27;&#x27;
+                               MaskVariables: &#x27;&#x27;
+                      MaskTunableValueString: &#x27;&#x27;
+                          MaskCallbackString: &#x27;&#x27;
+                            MaskEnableString: &#x27;&#x27;
+                        MaskVisibilityString: &#x27;&#x27;
+                           MaskToolTipString: &#x27;&#x27;
+                          MaskVarAliasString: &#x27;&#x27;
+                          MaskInitialization: &#x27;&#x27;
+                          MaskSelfModifiable: &#x27;off&#x27;
+                                 MaskDisplay: &#x27;&#x27;
+                            MaskBlockDVGIcon: &#x27;&#x27;
+                               MaskIconFrame: &#x27;on&#x27;
+                              MaskIconOpaque: &#x27;opaque&#x27;
+                              MaskIconRotate: &#x27;none&#x27;
+                              MaskPortRotate: &#x27;default&#x27;
+                               MaskIconUnits: &#x27;autoscale&#x27;
+                             MaskValueString: &#x27;&#x27;
+                    MaskRunInitForIconRedraw: &#x27;analyze&#x27;
+                           MaskTabNameString: &#x27;&#x27;
+                                        Mask: &#x27;off&#x27;
+                               MaskCallbacks: {0&#xD7;1 cell}
+                                 MaskEnables: {0&#xD7;1 cell}
+                                   MaskNames: {0&#xD7;1 cell}
+                      MaskPropertyNameString: &#x27;&#x27;
+                                 MaskPrompts: {0&#xD7;1 cell}
+                                  MaskStyles: {0&#xD7;1 cell}
+                           MaskTunableValues: {0&#xD7;1 cell}
+                                  MaskValues: {0&#xD7;1 cell}
+                         MaskToolTipsDisplay: {0&#xD7;1 cell}
+                            MaskVisibilities: {0&#xD7;1 cell}
+                              MaskVarAliases: {0&#xD7;1 cell}
+                             MaskWSVariables: []
+                                MaskTabNames: {0&#xD7;1 cell}
+                                  MaskObject: []
+                                       Ports: [0 1 0 0 0 0 0 0 0]
+                                    Position: [20 38 50 52]
+                                 Orientation: &#x27;right&#x27;
+                            PortRotationType: &#x27;default&#x27;
+                             ForegroundColor: &#x27;black&#x27;
+                             BackgroundColor: &#x27;white&#x27;
+                                  DropShadow: &#x27;off&#x27;
+                                      IOType: &#x27;none&#x27;
+                               NamePlacement: &#x27;normal&#x27;
+                                NameLocation: &#x27;bottom&#x27;
+                                    ShowName: &#x27;on&#x27;
+                           HideAutomaticName: &#x27;on&#x27;
+                                    Priority: &#x27;&#x27;
+                                   Commented: &#x27;off&#x27;
+                       CodeProfilingOverride: &#x27;inherit&#x27;
+                      AttributesFormatString: &#x27;&#x27;
+                           InstantiateOnLoad: &#x27;off&#x27;
+                         PolySpaceEndComment: &#x27;&#x27;
+                       PolySpaceStartComment: &#x27;&#x27;
+                               AncestorBlock: &#x27;&#x27;
+                              ReferenceBlock: &#x27;&#x27;
+                           SourceLibraryInfo: &#x27;&#x27;
+                              LibraryVersion: &#x27;&#x27;
+                          UserDataPersistent: &#x27;off&#x27;
+                                    UserData: []
+                            CompiledIsActive: &#x27;on&#x27;
+                         CompiledVariantInfo: [1&#xD7;1 struct]
+                                     RTWdata: []
+                                     HDLData: []
+                                 Diagnostics: &#x27;&#x27;
+                            DialogParameters: [1&#xD7;1 struct]
+                   IntrinsicDialogParameters: [1&#xD7;1 struct]
+                         AlgorithmParameters: [1&#xD7;1 struct]
+                SecondaryAlgorithmParameters: [1&#xD7;1 struct]
+                          CompiledSampleTime: [-1 0]
+                            InputSignalNames: {1&#xD7;0 cell}
+                           OutputSignalNames: {&#x27;&#x27;}
+                         ModelParamTableInfo: []
+                StatePerturbationForJacobian: &#x27;auto&#x27;
+    SCDEnableBlockLinearizationSpecification: &#x27;off&#x27;
+          SCDBlockLinearizationSpecification: []
+                                     CopyFcn: &#x27;&#x27;
+                                   DeleteFcn: &#x27;&#x27;
+                               UndoDeleteFcn: &#x27;&#x27;
+                                     LoadFcn: &#x27;&#x27;
+                               ModelCloseFcn: &#x27;&#x27;
+                                  PreSaveFcn: &#x27;&#x27;
+                                 PostSaveFcn: &#x27;&#x27;
+                                     InitFcn: &#x27;&#x27;
+                                 PreStartFcn: &#x27;&#x27;
+                                    StartFcn: &#x27;&#x27;
+                                    PauseFcn: &#x27;&#x27;
+                                 ContinueFcn: &#x27;&#x27;
+                                     StopFcn: &#x27;&#x27;
+                               NameChangeFcn: &#x27;&#x27;
+                                ClipboardFcn: &#x27;&#x27;
+                                  DestroyFcn: &#x27;&#x27;
+                                  PreCopyFcn: &#x27;&#x27;
+                                     OpenFcn: &#x27;&#x27;
+                                    CloseFcn: &#x27;&#x27;
+                                PreDeleteFcn: &#x27;&#x27;
+                              ParentCloseFcn: &#x27;&#x27;
+                                     MoveFcn: &#x27;&#x27;
+                                   BlockType: &#x27;Inport&#x27;
+                            BlockDescription: &#x27;&#x4E3A;&#x5B50;&#x7CFB;&#x7EDF;&#x6216;&#x6A21;&#x578B;&#x63D0;&#x4F9B;&#x8F93;&#x5165;&#x7AEF;&#x53E3;&#x3002;&#x21B5;&#x5BF9;&#x4E8E;&#x89E6;&#x53D1;&#x5B50;&#x7CFB;&#x7EDF;&#xFF0C;&#x27;&#x901A;&#x8FC7;&#x5EF6;&#x8FDF;&#x5916;&#x90E8;&#x4FE1;&#x53F7;&#x9501;&#x5B58;&#x8F93;&#x5165;&#x27; &#x751F;&#x6210;&#x5728;&#x524D;&#x4E00;&#x65F6;&#x95F4;&#x6B65;&#x7684;&#x5B50;&#x7CFB;&#x7EDF;&#x8F93;&#x5165;&#x503C;&#x3002;&#x21B5;&#x5BF9;&#x4E8E;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x5B50;&#x7CFB;&#x7EDF;&#xFF0C;&#x542F;&#x7528; &#x27;&#x9488;&#x5BF9;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x5B50;&#x7CFB;&#x7EDF;&#x8F93;&#x51FA;&#x7684;&#x53CD;&#x9988;&#x4FE1;&#x53F7;&#x9501;&#x5B58;&#x8F93;&#x5165;&#x27; &#x53EF;&#x9632;&#x6B62;&#x6B64;&#x5B50;&#x7CFB;&#x7EDF;&#x7684;&#x8F93;&#x5165;&#x503C;&#x5728;&#x5176;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;&#x21B5;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x53EF;&#x7528;&#x4E8E;&#x663E;&#x5F0F;&#x6307;&#x5B9A;&#x8F93;&#x5165;&#x4FE1;&#x53F7;&#x5C5E;&#x6027;&#x3002;&#x27;
+                               BlockKeywords: &#x22;&#x22;
+                                  LinkStatus: &#x27;none&#x27;
+                            StaticLinkStatus: &#x27;none&#x27;
+                            PortConnectivity: [1&#xD7;1 struct]
+                                 PortHandles: [1&#xD7;1 struct]
+                                 LineHandles: [1&#xD7;1 struct]
+                          CompiledPortWidths: [0&#xD7;0 struct]
+                      CompiledPortDimensions: [0&#xD7;0 struct]
+                       CompiledPortDataTypes: [0&#xD7;0 struct]
+                           CompiledPortUnits: [0&#xD7;0 struct]
+                  CompiledPortComplexSignals: [0&#xD7;0 struct]
+                       CompiledPortFrameData: [0&#xD7;0 struct]
+                   DataTypeOverride_Compiled: &#x27;UseLocalSettings&#x27;
+              MinMaxOverflowLogging_Compiled: &#x27;UseLocalSettings&#x27;
+                                Capabilities: [1&#xD7;1 Capabilities]
+                             IOSignalStrings: []
+                               RuntimeObject: [0&#xD7;1 double]
+                         ExtModeUploadOption: &#x27;none&#x27;
+                     ExtModeLoggingSupported: &#x27;off&#x27;
+                          ExtModeLoggingTrig: &#x27;off&#x27;
+                   TargetArchitectureMapping: {}
+                                        Port: &#x27;1&#x27;
+                                    PortName: &#x27;input&#x27;
+                                     Element: &#x27;&#x27;
+                            IsBusElementPort: &#x27;off&#x27;
+                                 IconDisplay: &#x27;Port number&#x27;
+                          OutputFunctionCall: &#x27;off&#x27;
+                                      OutMin: &#x27;[]&#x27;
+                                      OutMax: &#x27;[]&#x27;
+                              OutDataTypeStr: &#x27;Inherit: auto&#x27;
+                                   LockScale: &#x27;off&#x27;
+                           BusOutputAsStruct: &#x27;off&#x27;
+                               BusVirtuality: &#x27;inherit&#x27;
+                                        Unit: &#x27;inherit&#x27;
+                              PortDimensions: &#x27;-1&#x27;
+                                  VarSizeSig: &#x27;Inherit&#x27;
+                                  SampleTime: &#x27;-1&#x27;
+                                  SignalType: &#x27;auto&#x27;
+                LatchByDelayingOutsideSignal: &#x27;off&#x27;
+                LatchInputForFeedbackSignals: &#x27;off&#x27;
+                                 Interpolate: &#x27;on&#x27;
+                                InputConnect: &#x27;&#x27;
+                                    DataMode: &#x27;inherit&#x27;
+            MessageQueueUseDefaultAttributes: &#x27;on&#x27;
+                        MessageQueueCapacity: &#x27;1&#x27;
+                            MessageQueueType: &#x27;LIFO&#x27;
+                     MessageQueueOverwriting: &#x27;on&#x27;
+</code></pre>
+<p>可通过<code>get_param</code>获取特定属性 (<code>get</code>命令同样适用)</p>
+<pre><code class="language-m">&#x3E;&#x3E; get_param(Handles(1),&#x27;PortName&#x27;)
+
+ans =
+
+    &#x27;Input&#x27;
+</code></pre>
+<h3 id="句柄的引入-修改属性">修改属性</h3>
+<p>Matlab提供了<code>get</code> <code>get_Param</code>命令获取属性, 同样, 可使用<code>set</code> <code>set_param</code></p>
+<pre><code class="language-m">set(LineHandle,&#x27;MustResolveToSignalObject&#x27;,0);
+</code></pre>
+<hr>
+<blockquote>
+<p>由此可见, 句柄是m命令操作模型模块的重要接口</p>
+<p>针对模型的修改, 通常都是通过筛选符合要求的句柄, 对其属性修改完成的</p>
+</blockquote>
+<h2 id="新增模块与信号线">新增模块与信号线</h2>
+<h3 id="新增模块与信号线-新增模块">新增模块</h3>
+<h3 id="新增模块与信号线-模块的连接">模块的连接</h3>
+<h2 id="修改模型设置">修改模型设置</h2>
+</div><div class="m-content-container m-paging"><div class="m-paging-prev m-paging-item"><a href="datastorage.html" class="href"><span class="ui-font-ydoc"></span>数据的存储</a></div></div></div></div></div><div></div><script>
+    var $content = document.getElementById('js-content');
+    var $summaryItems = Array.prototype.slice.call(document.querySelectorAll('#js-menu .href'));
+    var $menu = document.getElementById('js-menu');
+    if (sessionStorage.prevPathname) {
+      sessionStorage.setItem('prevPrevPathname', sessionStorage.prevPathname);
+      sessionStorage.setItem('prevPrevMenuScrollTop', sessionStorage.prevMenuScrollTop);
+      sessionStorage.setItem('prevPrevContentScrollTop', sessionStorage.prevContentScrollTop);
+    }
+    if (sessionStorage.locationPathname) {
+      sessionStorage.setItem('prevPathname', sessionStorage.locationPathname);
+      sessionStorage.setItem('prevMenuScrollTop', sessionStorage.menuScrollTop);
+      sessionStorage.setItem('prevContentScrollTop', sessionStorage.contentScrollTop);
+    }
+    if ($menu && sessionStorage.menuScrollTop) {
+		  $menu.scrollTop = sessionStorage.menuScrollTop;
+    }
+    // 刷新页面但不切换 pathname 的时候，内容区恢复到记忆的高度
+    if ($content && sessionStorage.contentScrollTop && window.location.pathname == sessionStorage.locationPathname) {
+      $content.scrollTop = sessionStorage.contentScrollTop;
+    } else if (sessionStorage.prevPrevPathname && sessionStorage.prevPrevPathname === window.location.pathname) {
+      if ($menu && sessionStorage.prevPrevMenuScrollTop) {
+        $menu.scrollTop = sessionStorage.prevPrevMenuScrollTop;
+      }
+      if ($content && sessionStorage.prevPrevContentScrollTop) {
+        $content.scrollTop = sessionStorage.prevPrevContentScrollTop;
+      }
+    }
+    sessionStorage.setItem('locationPathname', window.location.pathname);
+    </script><script src="..\ydoc\scripts\plugins\dollar.min.js"></script><script src="..\ydoc\scripts\plugins\responsive-nav.min.js"></script><script src="..\ydoc\scripts\plugins\slideout.min.js"></script><script src="..\ydoc\scripts\app.js"></script><script src="..\ydoc\ydoc-plugin-search\core.js"></script><script src="..\ydoc\ydoc-plugin-search\search.js"></script><script src="..\search_json.js"></script></body></html>
