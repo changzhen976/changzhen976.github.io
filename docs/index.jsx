@@ -1,7 +1,7 @@
 ---
 banner:
   name: 'Simulink代码生成及集成'
-  desc: '使用Simulink, 从模型搭建到生成c代码并集成到控制器中运行,全流程文档 (作者没有前端基础, 正在摸索)'
+  desc: '使用Simulink, 从模型搭建到生成c代码并集成到控制器中运行,全流程文档(基于Matlab R2021b) (作者没有前端基础, 正在摸索)'
   btns: 
     - { name: '官方文档', href: 'https://ww2.mathworks.cn/help/simulink/index.html', primary: true }
     - { name: 'Github >', href: 'https://github.com/changzhen976/Simulink-Demo.git' }

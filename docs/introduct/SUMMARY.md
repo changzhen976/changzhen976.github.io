@@ -2,8 +2,8 @@
 
 ### 开始
 
-* [Matlab界面介绍](matlabintro.md)
-* [Simulink界面介绍](simulinkintro.md)
+* [Matlab使用基础操作](matlabintro.md)
+* [Simulink使用基础操作](simulinkintro.md)
 
 ### 运行
 
