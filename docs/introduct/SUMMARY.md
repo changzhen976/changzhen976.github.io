@@ -9,6 +9,6 @@
 
 ### 运行
 
-* [命令行](runcmd.md)
-* [m文件](runscript.md)
-* [模型](runmodle.md)
+* [运行命令行](runcmd.md)
+* [运行m文件](runscript.md)
+* [打开模型](runmodle.md)

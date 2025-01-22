@@ -2,11 +2,11 @@
       <div class="icon">&#xf0fd;</div>
       <input type="text" class="input js-input" placeholder="搜索" />
       <div class="m-search-result js-search-result"></div>
-    </div></div><nav class="m-header-nav js-nav"><ul class="m-header-items"><li class="item "><a class="href" href="..\introduct\index.html">基本知识</a></li><li class="item "><a class="href" href="..\model\index.html">模型搭建</a></li><li class="item "><a class="href" href="..\codegenerate\index.html">代码生成与集成</a></li><li class="item "><a class="href" href="..\script\index.html">m脚本</a></li><li class="item active"><a class="href" href="index.html">博客</a></li><li class="item "><a class="href" href="..\about\index.html">关于</a></li></ul></nav><div id="js-nav-btn" class="m-header-btn ui-font-ydoc"></div></header><div class="m-content" id="js-content"><div id="markdown-body" class="m-content-container markdown-body"><h1>数据的存储</h1>
+    </div></div><nav class="m-header-nav js-nav"><ul class="m-header-items"><li class="item "><a class="href" href="..\introduct\index.html">基本知识</a></li><li class="item "><a class="href" href="..\mlanguage\index.html">m语言</a></li><li class="item "><a class="href" href="..\model\index.html">模型搭建</a></li><li class="item "><a class="href" href="..\codegenerate\index.html">代码生成与集成</a></li><li class="item active"><a class="href" href="index.html">博客</a></li><li class="item "><a class="href" href="..\about\index.html">关于</a></li></ul></nav><div id="js-nav-btn" class="m-header-btn ui-font-ydoc"></div></header><div class="m-content" id="js-content"><div id="markdown-body" class="m-content-container markdown-body"><h1>数据的存储</h1>
 <blockquote>
 <p>在模型搭建中, 我们会使用到各种各样的数据, 输入 输出 参数 自定义信号等</p>
 <p>对于一个数据来讲, 又包含其数据类型的指定, 数值设定. 如果涉及到代码生成, 还要关注其在代码中声明和定义的方式</p>
-<p>Simulink模型搭建模型仿真时可以比较随意的设置, 很少影响仿真结果, 但当需要代码生成时, 相关变量的定义与使用要求就会比较严格, 避免代码集成时造成编译错误</p>
+<p>Simulink模型搭建模型仿真时可以比较随意地设置, 很少影响仿真结果. 但当需要代码生成时, 相关变量的定义与使用要求就会比较严格, 避免代码集成时造成编译错误</p>
 </blockquote>
 <h1>常见的数据存储方式</h1>
 <h2 id="存放在m脚本中">存放在m脚本中</h2>
@@ -14,24 +14,24 @@
 <p>在m脚本中依次定义数值</p>
 </blockquote>
 <h3 id="存放在m脚本中-定义参数parameter">定义参数(Parameter)</h3>
-<pre><code class="language-m">% define &#x60;Param01&#x60; as a Paramenter
-Param01 = Simulink.Parameter;
-% set default value as 1
-Param01.Value = 1;
-Param01.Complexity = &#x27;real&#x27;;
-% &#x60;CodeInfo&#x60; define properties which influence how code generate
-Param01.CoderInfo.StorageClass = &#x27;Custom&#x27;;
-Param01.CoderInfo.Identifier = &#x27;&#x27;;
-Param01.CoderInfo.Alignment = -1;
-% when generate, Model whill include &#x3C;demo.h&#x3E; which defined Param01
-Param01.CoderInfo.CustomStorageClass = &#x27;ImportFromFile&#x27;;
-Param01.CoderInfo.CustomAttributes.HeaderFile = &#x27;demo.h&#x27;;
-Param01.CoderInfo.CustomAttributes.PreserveDimensions = false;
-Param01.Description = &#x27;Parameter export Demo for blog&#x27;;
-Param01.DataType = &#x27;uint8&#x27;;
-Param01.Min = 0;
-Param01.Max = 15;
-Param01.DocUnits = &#x27;m&#x27;;
+<pre><code class="language-matlab"><span class="token comment">% define `Param01` as a Paramenter</span>
+Param01 <span class="token operator">=</span> Simulink<span class="token punctuation">.</span>Parameter<span class="token punctuation">;</span>
+<span class="token comment">% set default value as 1</span>
+Param01<span class="token punctuation">.</span>Value <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+Param01<span class="token punctuation">.</span>Complexity <span class="token operator">=</span> <span class="token string">'real'</span><span class="token punctuation">;</span>
+<span class="token comment">% `CodeInfo` define properties which influence how code generate</span>
+Param01<span class="token punctuation">.</span>CoderInfo<span class="token punctuation">.</span>StorageClass <span class="token operator">=</span> <span class="token string">'Custom'</span><span class="token punctuation">;</span>
+Param01<span class="token punctuation">.</span>CoderInfo<span class="token punctuation">.</span>Identifier <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+Param01<span class="token punctuation">.</span>CoderInfo<span class="token punctuation">.</span>Alignment <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token comment">% when generate, Model whill include &lt;demo.h> which defined Param01</span>
+Param01<span class="token punctuation">.</span>CoderInfo<span class="token punctuation">.</span>CustomStorageClass <span class="token operator">=</span> <span class="token string">'ImportFromFile'</span><span class="token punctuation">;</span>
+Param01<span class="token punctuation">.</span>CoderInfo<span class="token punctuation">.</span>CustomAttributes<span class="token punctuation">.</span>HeaderFile <span class="token operator">=</span> <span class="token string">'demo.h'</span><span class="token punctuation">;</span>
+Param01<span class="token punctuation">.</span>CoderInfo<span class="token punctuation">.</span>CustomAttributes<span class="token punctuation">.</span>PreserveDimensions <span class="token operator">=</span> false<span class="token punctuation">;</span>
+Param01<span class="token punctuation">.</span>Description <span class="token operator">=</span> <span class="token string">'Parameter export Demo for blog'</span><span class="token punctuation">;</span>
+Param01<span class="token punctuation">.</span>DataType <span class="token operator">=</span> <span class="token string">'uint8'</span><span class="token punctuation">;</span>
+Param01<span class="token punctuation">.</span>Min <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+Param01<span class="token punctuation">.</span>Max <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">;</span>
+Param01<span class="token punctuation">.</span>DocUnits <span class="token operator">=</span> <span class="token string">'m'</span><span class="token punctuation">;</span>
 </code></pre>
 <p>将上述命令保存为一个m文件并运行, 此时工作区能生成一个Parameter变量, 其属性与命令行定义一致</p>
 <p>生成c代码:</p>
@@ -39,11 +39,11 @@ Param01.DocUnits = &#x27;m&#x27;;
 </code></pre>
 <h3 id="存放在m脚本中-定义数据类型aliastype">定义数据类型(AliasType)</h3>
 <p>m命令定义</p>
-<pre><code class="language-m">Demo_U8 = Simulink.AliasType;
-Demo_U8.Description = &#x27;&#x27;;
-Demo_U8.DataScope = &#x27;Auto&#x27;;
-Demo_U8.HeaderFile = &#x27;&#x27;;
-Demo_U8.BaseType = &#x27;uint8&#x27;;
+<pre><code class="language-matlab">Demo_U8 <span class="token operator">=</span> Simulink<span class="token punctuation">.</span>AliasType<span class="token punctuation">;</span>
+Demo_U8<span class="token punctuation">.</span>Description <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+Demo_U8<span class="token punctuation">.</span>DataScope <span class="token operator">=</span> <span class="token string">'Auto'</span><span class="token punctuation">;</span>
+Demo_U8<span class="token punctuation">.</span>HeaderFile <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+Demo_U8<span class="token punctuation">.</span>BaseType <span class="token operator">=</span> <span class="token string">'uint8'</span><span class="token punctuation">;</span>
 </code></pre>
 <p>生成c代码:</p>
 <pre><code class="language-c"><span class="token keyword">typedef</span> uint8_T Demo_U8<span class="token punctuation">;</span>
@@ -67,7 +67,7 @@ Demo_U8.BaseType = &#x27;uint8&#x27;;
 <h2 id="存放在数据词典sldd中">存放在数据词典(sldd)中</h2>
 <blockquote>
 <p>数据词典(sldd)类似于一个工作区, 其中可定义各种各样的数据类型及变量, 当打开该词典时, m命令和Simulnk模型可获取其中的内容</p>
-<p>sldd提供可视化的操作界面, 可以拜托命令行的限值, 方面维护</p>
+<p>sldd提供可视化的操作界面, 可以摆脱命令行的限制, 方面维护</p>
 </blockquote>
 <h3 id="存放在数据词典sldd中-sldd新建">sldd新建</h3>
 <p><em><strong>命令行新建</strong></em></p>

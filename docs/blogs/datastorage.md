@@ -14,7 +14,7 @@
 
 ### 定义参数(Parameter)
 
-```m
+```matlab
 % define `Param01` as a Paramenter
 Param01 = Simulink.Parameter;
 % set default value as 1
@@ -48,7 +48,7 @@ Param01.DocUnits = 'm';
 
 m命令定义
 
-```m
+```matlab
 Demo_U8 = Simulink.AliasType;
 Demo_U8.Description = '';
 Demo_U8.DataScope = 'Auto';
@@ -64,7 +64,7 @@ typedef uint8_T Demo_U8;
 
 ----
 
-### 其他注意事项
+### 其他注意事项 
 
 > 除以上外, 常用的 还可以定义枚举, 总线(bus 对应代码中的结构体类型)等等
 >

@@ -10,7 +10,7 @@
 
 ### 获取句柄
 
-```m
+```matlab
 Handles = find_system(bdroot, 'FindAll','on','type','block','BlockType','Inport');
 ```
 
@@ -24,13 +24,13 @@ Handles = find_system(bdroot, 'FindAll','on','type','block','BlockType','Inport'
 
 > 句柄为特定格式, 无法从句柄中获取可读信息, 可通过进一步操作获取模块的属性
 
-```m
+```matlab
 get(Handles(1))
 ```
 
 通过`get`获取句柄1的属性(内容非常非常多)
 
-```m
+```matlab
 >> get(Handles(2))
                                         Path: 'test/increase'
                                         Name: 'input'
@@ -201,7 +201,7 @@ get(Handles(1))
 
 可通过`get_param`获取特定属性 (`get`命令同样适用)
 
-```m
+```matlab
 >> get_param(Handles(1),'PortName')
 
 ans =
@@ -213,7 +213,7 @@ ans =
 
 Matlab提供了`get` `get_Param`命令获取属性, 同样, 可使用`set` `set_param`
 
-```m
+```matlab
 set(LineHandle,'MustResolveToSignalObject',0);
 ```
 

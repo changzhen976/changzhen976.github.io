@@ -159,6 +159,58 @@ window.ydoc_plugin_search_json = {
       ]
     }
   ],
+  "m语言": [
+    {
+      "title": "m语言",
+      "content": "m语言为Matlab使用的编程语言, 提供了......\n",
+      "url": "\\mlanguage\\index.html",
+      "children": []
+    },
+    {
+      "title": "基础指令",
+      "content": "",
+      "url": "\\mlanguage\\basecmd.html",
+      "children": []
+    },
+    {
+      "title": "variable",
+      "content": "",
+      "url": "\\mlanguage\\variable.html",
+      "children": []
+    },
+    {
+      "title": "程序流控制指令",
+      "content": "",
+      "url": "\\mlanguage\\controlflow.html",
+      "children": [
+        {
+          "title": "条件判断",
+          "url": "\\mlanguage\\controlflow.html#条件判断",
+          "content": "条件判断"
+        },
+        {
+          "title": "if-else",
+          "url": "\\mlanguage\\controlflow.html#条件判断-if-else",
+          "content": "if-else"
+        },
+        {
+          "title": "switch-case",
+          "url": "\\mlanguage\\controlflow.html#条件判断-switch-case",
+          "content": "switch-case"
+        },
+        {
+          "title": "for循环",
+          "url": "\\mlanguage\\controlflow.html#for循环",
+          "content": "for循环"
+        },
+        {
+          "title": "while循环",
+          "url": "\\mlanguage\\controlflow.html#while循环",
+          "content": "while循环"
+        }
+      ]
+    }
+  ],
   "模型搭建": [
     {
       "title": "模型搭建规则及技巧",
@@ -210,14 +262,6 @@ window.ydoc_plugin_search_json = {
       "children": []
     }
   ],
-  "m脚本": [
-    {
-      "title": "HA",
-      "content": "This is home page of documents book.",
-      "url": "\\script\\index.html",
-      "children": []
-    }
-  ],
   "博客": [
     {
       "title": "Blogs",
@@ -227,7 +271,7 @@ window.ydoc_plugin_search_json = {
     },
     {
       "title": "数据的存储常见的数据存储方式",
-      "content": "在模型搭建中, 我们会使用到各种各样的数据, 输入 输出 参数 自定义信号等\n对于一个数据来讲, 又包含其数据类型的指定, 数值设定. 如果涉及到代码生成, 还要关注其在代码中声明和定义的方式\nSimulink模型搭建模型仿真时可以比较随意的设置, 很少影响仿真结果, 但当需要代码生成时, 相关变量的定义与使用要求就会比较严格, 避免代码集成时造成编译错误\n",
+      "content": "在模型搭建中, 我们会使用到各种各样的数据, 输入 输出 参数 自定义信号等\n对于一个数据来讲, 又包含其数据类型的指定, 数值设定. 如果涉及到代码生成, 还要关注其在代码中声明和定义的方式\nSimulink模型搭建模型仿真时可以比较随意地设置, 很少影响仿真结果. 但当需要代码生成时, 相关变量的定义与使用要求就会比较严格, 避免代码集成时造成编译错误\n",
       "url": "\\blogs\\datastorage.html",
       "children": [
         {
@@ -253,7 +297,7 @@ window.ydoc_plugin_search_json = {
         {
           "title": "存放在数据词典(sldd)中",
           "url": "\\blogs\\datastorage.html#存放在数据词典sldd中",
-          "content": "存放在数据词典(sldd)中数据词典(sldd)类似于一个工作区, 其中可定义各种各样的数据类型及变量, 当打开该词典时, m命令和Simulnk模型可获取其中的内容\nsldd提供可视化的操作界面, 可以拜托命令行的限值, 方面维护\n"
+          "content": "存放在数据词典(sldd)中数据词典(sldd)类似于一个工作区, 其中可定义各种各样的数据类型及变量, 当打开该词典时, m命令和Simulnk模型可获取其中的内容\nsldd提供可视化的操作界面, 可以摆脱命令行的限制, 方面维护\n"
         },
         {
           "title": "sldd新建",
