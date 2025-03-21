@@ -219,37 +219,106 @@ window.ydoc_plugin_search_json = {
       "children": []
     },
     {
-      "title": "HA 本地服务器的安装",
-      "content": "...",
-      "url": "\\model\\installation.html",
-      "children": []
-    },
-    {
-      "title": "Introduction",
-      "content": "Introduction",
-      "url": "\\model\\intro.html",
+      "title": "SimulinkDesign",
+      "content": "",
+      "url": "\\model\\SimulinkDesign.html",
       "children": [
         {
-          "title": "title",
-          "url": "\\model\\intro.html#title",
-          "content": "titlecontent"
+          "title": "Simulink简介",
+          "url": "\\model\\SimulinkDesign.html#simulink简介",
+          "content": "Simulink简介"
+        },
+        {
+          "title": "图形化界面",
+          "url": "\\model\\SimulinkDesign.html#simulink简介-图形化界面",
+          "content": "图形化界面"
+        },
+        {
+          "title": "常用设置",
+          "url": "\\model\\SimulinkDesign.html#simulink简介-常用设置",
+          "content": "常用设置"
+        },
+        {
+          "title": "常用模块",
+          "url": "\\model\\SimulinkDesign.html#常用模块",
+          "content": "常用模块"
+        },
+        {
+          "title": "输入输出",
+          "url": "\\model\\SimulinkDesign.html#常用模块-输入输出",
+          "content": "输入输出"
+        },
+        {
+          "title": "数值运算",
+          "url": "\\model\\SimulinkDesign.html#常用模块-数值运算",
+          "content": "数值运算数据计算逻辑运算"
+        },
+        {
+          "title": "集合信号处理",
+          "url": "\\model\\SimulinkDesign.html#常用模块-集合信号处理",
+          "content": "集合信号处理数组总线"
+        },
+        {
+          "title": "各类子系统",
+          "url": "\\model\\SimulinkDesign.html#常用模块-各类子系统",
+          "content": "各类子系统子系统使能子系统触发子系统"
         }
       ]
     },
     {
-      "title": "env",
-      "content": "env",
-      "url": "\\model\\env.html",
+      "title": "StateFlowDesign",
+      "content": "",
+      "url": "\\model\\StateFlowDesign.html",
       "children": [
         {
-          "title": "title",
-          "url": "\\model\\env.html#title",
-          "content": "titlecontent"
+          "title": "StateFlow简介",
+          "url": "\\model\\StateFlowDesign.html#stateflow简介",
+          "content": "StateFlow简介"
         },
         {
-          "title": "sub-title",
-          "url": "\\model\\env.html#title-sub-title",
-          "content": "sub-titlecontent"
+          "title": "状态",
+          "url": "\\model\\StateFlowDesign.html#stateflow简介-状态",
+          "content": "状态"
+        },
+        {
+          "title": "条件",
+          "url": "\\model\\StateFlowDesign.html#stateflow简介-条件",
+          "content": "条件"
+        },
+        {
+          "title": "执行",
+          "url": "\\model\\StateFlowDesign.html#stateflow简介-执行",
+          "content": "执行立即执行ENDUEX"
+        },
+        {
+          "title": "常见建模方式",
+          "url": "\\model\\StateFlowDesign.html#常见建模方式",
+          "content": "常见建模方式"
+        },
+        {
+          "title": "基础状态机",
+          "url": "\\model\\StateFlowDesign.html#常见建模方式-基础状态机",
+          "content": "基础状态机"
+        },
+        {
+          "title": "嵌套状态机",
+          "url": "\\model\\StateFlowDesign.html#常见建模方式-嵌套状态机",
+          "content": "嵌套状态机"
+        },
+        {
+          "title": "并行状态机",
+          "url": "\\model\\StateFlowDesign.html#常见建模方式-并行状态机",
+          "content": "并行状态机"
+        },
+        {
+          "title": "StateFlow设置",
+          "url": "\\model\\StateFlowDesign.html#stateflow设置",
+          "content": "StateFlow设置"
+        },
+        {
+          "title": "StateFlow建模建议",
+          "url": "\\model\\StateFlowDesign.html#stateflow建模建议",
+          "content": "StateFlow建模建议"
         }
       ]
     }
