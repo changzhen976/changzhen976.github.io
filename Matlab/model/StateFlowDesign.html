@@ -6,12 +6,71 @@
 <hr>
 <h2 id="stateflow简介">StateFlow简介</h2>
 <h3 id="stateflow简介-状态">状态</h3>
+<p>就是状态, 每个StateFlow只能处于一个状态, 状态机只会停留在某个状态, 不能停留在流转线或点上</p>
+<p><img src="vx_images/9584039930586.png" alt="状态"></p>
+<blockquote>
+<p><code>A</code> <code>B</code> <code>C</code> 为改StateFlow的三个状态</p>
+</blockquote>
 <h3 id="stateflow简介-条件">条件</h3>
+<p>状态跳转的条件, 条件满足时, 箭头激活使状态跳转</p>
+<p><img src="vx_images/589293348421245.png" alt="条件"></p>
+<blockquote>
+<p>当状态处于<code>A</code>时, <code>trigger_A2B</code>为true, 状态将会跳转到<code>B</code>
+条件指令由 <code>[</code> <code>]</code> 包围</p>
+</blockquote>
 <h3 id="stateflow简介-执行">执行</h3>
+<blockquote>
+<p>StateFLow中执行从起始点开始, 通过<code>条件</code>判断流程图走向, 执行不同命令</p>
+</blockquote>
+<p>命令行主要分在两个部分</p>
+<ol>
+<li>状态流转线上的<code>{ }</code>中</li>
+<li>状态内的 <code>en</code> <code>du</code> <code>ex</code>后</li>
+</ol>
 <h4>立即执行</h4>
+<p>流转线上的大括号内:</p>
+<p><img src="vx_images/191576884292548.png" alt="命令执行"></p>
+<blockquote>
+<p>无状态的StateFLow, 从起始点一直执行到最后</p>
+</blockquote>
+<p><img src="vx_images/475504635831849.png" alt="状态内的流转线"></p>
+<blockquote>
+<p>状态内部也可搭建流转线执行指令</p>
+</blockquote>
 <h4>EN</h4>
+<p>当刚刚进入某个状态的第一个周期执行<code>en</code>后的内容</p>
+<p>EN的搭建方式用两种:</p>
+<p><strong>1) 以<code>A</code>状态为例</strong></p>
+<p><img src="vx_images/4207857183701.png" alt="State A"></p>
+<p>当进入该状态时, 立即执行<code>en</code>后的指令, 将<code>state</code>赋值为0</p>
+<p><strong>2) 以<code>C</code>状态为例</strong></p>
+<p><img src="vx_images/35705955788043.png" alt="en"></p>
+<p>在状态中添加起始点, 效果等同于<code>en</code></p>
 <h4>DU</h4>
+<p>进入某个状态的第二个周期开始, 执行<code>du</code>之中的内容</p>
+<p>与<code>EN</code>类型, 搭建方式也有两种</p>
+<p><strong>1) 以<code>A</code>状态为例</strong></p>
+<p>当进入该状态后, 执行<code>du</code>之后的指令, 将<code>tmp_A</code>加一 (图示如EN中)</p>
+<p><strong>2) 以<code>C</code>状态为例</strong></p>
+<p>将流转线连接至状态框上, 效果等同于<code>du</code>(图示如EN中)</p>
 <h4>EX</h4>
+<p>当状态跳转, 要退出该状态时执行的指令</p>
+<p>位于<code>ex</code>关键字之后(图示如EN中)
+退出指令只能通过<code>ex</code>关键字知名, 无法搭建流转线</p>
+<blockquote>
+<p><em><strong>使用 <code>en</code> <code>du</code> <code>ex</code>关键字与流转线的对比:</strong></em>
+关键字无法执行判断语句, 仅支持简单的数值运算(可通过调用函数来实现)
+使用流转线可与直观搭建判断与循环指令</p>
+</blockquote>
+<h2 id="stateflow中的function">StateFlow中的Function</h2>
+<blockquote>
+<p>StateFlow中可调用函数来执行复杂操作, 是页面简洁明了</p>
+</blockquote>
+<h3 id="stateflow中的function-simulnk-function">Simulnk Function</h3>
+<blockquote>
+<p>新建Simulink Function, 嵌入一个Simulink模型执行复杂计算, SimulinkFunction视为单独一层, 其拥有单独的输入输出 local变量等, 与调用其的模型仅通过输入输出参数有数据交互</p>
+</blockquote>
+<h3 id="stateflow中的function-graphic-function">Graphic Function</h3>
 <h2 id="常见建模方式">常见建模方式</h2>
 <h3 id="常见建模方式-基础状态机">基础状态机</h3>
 <h3 id="常见建模方式-嵌套状态机">嵌套状态机</h3>

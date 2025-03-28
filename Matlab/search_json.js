@@ -278,17 +278,32 @@ window.ydoc_plugin_search_json = {
         {
           "title": "状态",
           "url": "\\model\\StateFlowDesign.html#stateflow简介-状态",
-          "content": "状态"
+          "content": "状态就是状态, 每个StateFlow只能处于一个状态, 状态机只会停留在某个状态, 不能停留在流转线或点上A B C 为改StateFlow的三个状态\n"
         },
         {
           "title": "条件",
           "url": "\\model\\StateFlowDesign.html#stateflow简介-条件",
-          "content": "条件"
+          "content": "条件状态跳转的条件, 条件满足时, 箭头激活使状态跳转当状态处于A时, trigger_A2B为true, 状态将会跳转到B\n条件指令由 [ ] 包围\n"
         },
         {
           "title": "执行",
           "url": "\\model\\StateFlowDesign.html#stateflow简介-执行",
-          "content": "执行立即执行ENDUEX"
+          "content": "执行StateFLow中执行从起始点开始, 通过条件判断流程图走向, 执行不同命令\n命令行主要分在两个部分状态流转线上的{ }中\n状态内的 en du ex后\n立即执行流转线上的大括号内:无状态的StateFLow, 从起始点一直执行到最后\n状态内部也可搭建流转线执行指令\nEN当刚刚进入某个状态的第一个周期执行en后的内容EN的搭建方式用两种:1) 以A状态为例当进入该状态时, 立即执行en后的指令, 将state赋值为02) 以C状态为例在状态中添加起始点, 效果等同于enDU进入某个状态的第二个周期开始, 执行du之中的内容与EN类型, 搭建方式也有两种1) 以A状态为例当进入该状态后, 执行du之后的指令, 将tmp_A加一 (图示如EN中)2) 以C状态为例将流转线连接至状态框上, 效果等同于du(图示如EN中)EX当状态跳转, 要退出该状态时执行的指令位于ex关键字之后(图示如EN中)退出指令只能通过ex关键字知名, 无法搭建流转线使用 en du ex关键字与流转线的对比:\n关键字无法执行判断语句, 仅支持简单的数值运算(可通过调用函数来实现)\n使用流转线可与直观搭建判断与循环指令\n"
+        },
+        {
+          "title": "StateFlow中的Function",
+          "url": "\\model\\StateFlowDesign.html#stateflow中的function",
+          "content": "StateFlow中的FunctionStateFlow中可调用函数来执行复杂操作, 是页面简洁明了\n"
+        },
+        {
+          "title": "Simulnk Function",
+          "url": "\\model\\StateFlowDesign.html#stateflow中的function-simulnk-function",
+          "content": "Simulnk Function新建Simulink Function, 嵌入一个Simulink模型执行复杂计算, SimulinkFunction视为单独一层, 其拥有单独的输入输出 local变量等, 与调用其的模型仅通过输入输出参数有数据交互\n"
+        },
+        {
+          "title": "Graphic Function",
+          "url": "\\model\\StateFlowDesign.html#stateflow中的function-graphic-function",
+          "content": "Graphic Function"
         },
         {
           "title": "常见建模方式",
