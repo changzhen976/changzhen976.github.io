@@ -11,9 +11,10 @@
     * [集合信号处理](SimulinkDesign.md#集合信号处理)
     * [各类子系统](SimulinkDesign.md#各类子系统)
 
-## StateFlow
+## StateFlow建模
 
 * [StateFlow简介](StateFlowDesign.md#StateFlow简介)
+* [StateFlow中的Function](StateFlowDesign.md#StateFlow中的Function)
 * [常见建模方式](StateFlowDesign.md#常见建模方式)
     * [基础状态机](StateFlowDesign.md#基础状态机)
     * [嵌套状态机](StateFlowDesign.md#嵌套状态机)

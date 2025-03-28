@@ -293,17 +293,17 @@ window.ydoc_plugin_search_json = {
         {
           "title": "StateFlow中的Function",
           "url": "\\model\\StateFlowDesign.html#stateflow中的function",
-          "content": "StateFlow中的FunctionStateFlow中可调用函数来执行复杂操作, 是页面简洁明了\n"
+          "content": "StateFlow中的FunctionStateFlow中可调用函数来执行复杂操作, 使页面更加简洁明了\n"
         },
         {
-          "title": "Simulnk Function",
-          "url": "\\model\\StateFlowDesign.html#stateflow中的function-simulnk-function",
-          "content": "Simulnk Function新建Simulink Function, 嵌入一个Simulink模型执行复杂计算, SimulinkFunction视为单独一层, 其拥有单独的输入输出 local变量等, 与调用其的模型仅通过输入输出参数有数据交互\n"
+          "title": "Simulink Function",
+          "url": "\\model\\StateFlowDesign.html#stateflow中的function-simulink-function",
+          "content": "Simulink Function新建Simulink Function, 嵌入一个Simulink模型执行复杂计算, SimulinkFunction视为单独一层, 其拥有单独的输入输出 local变量等, 与调用其的模型仅通过输入输出参数有数据交互\n"
         },
         {
           "title": "Graphic Function",
           "url": "\\model\\StateFlowDesign.html#stateflow中的function-graphic-function",
-          "content": "Graphic Function"
+          "content": "Graphic FunctionGraphicFunction支持传递参数的函数形式, 同时也支持直接操作改chart内的变量\n"
         },
         {
           "title": "常见建模方式",
@@ -313,17 +313,17 @@ window.ydoc_plugin_search_json = {
         {
           "title": "基础状态机",
           "url": "\\model\\StateFlowDesign.html#常见建模方式-基础状态机",
-          "content": "基础状态机"
+          "content": "基础状态机一层状态机结构, 简单的状态跳转\n"
         },
         {
           "title": "嵌套状态机",
           "url": "\\model\\StateFlowDesign.html#常见建模方式-嵌套状态机",
-          "content": "嵌套状态机"
+          "content": "嵌套状态机状态机内的状态机, 外层状态机优先于内层\n"
         },
         {
           "title": "并行状态机",
           "url": "\\model\\StateFlowDesign.html#常见建模方式-并行状态机",
-          "content": "并行状态机"
+          "content": "并行状态机StateFlow允许 '并行' 运行, 共享同样的输入, 输出, 局部变量等\n"
         },
         {
           "title": "StateFlow设置",

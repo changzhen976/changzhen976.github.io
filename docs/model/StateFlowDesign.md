@@ -86,21 +86,43 @@ EN的搭建方式用两种:
 
 ## StateFlow中的Function
 
-> StateFlow中可调用函数来执行复杂操作, 是页面简洁明了
+> StateFlow中可调用函数来执行复杂操作, 使页面更加简洁明了
 
-### Simulnk Function
+### Simulink Function
 
 > 新建Simulink Function, 嵌入一个Simulink模型执行复杂计算, SimulinkFunction视为单独一层, 其拥有单独的输入输出 local变量等, 与调用其的模型仅通过输入输出参数有数据交互
 
+![SimulinkFunction示例](vx_images/73094707885431.png)
+
+![Function内部](vx_images/264876730469888.png)
+
 ### Graphic Function
+
+> GraphicFunction支持传递参数的函数形式, 同时也支持直接操作改chart内的变量
+
+![Graphic Function](vx_images/31516072607730.png)
 
 ## 常见建模方式
 
 ### 基础状态机
 
+> 一层状态机结构, 简单的状态跳转
+
+![简单状态机](vx_images/511149988155116.png)
+
+
 ### 嵌套状态机
 
+> 状态机内的状态机, 外层状态机优先于内层
+
+![嵌套状态机](vx_images/452157638496368.png)
+
+
 ### 并行状态机
+
+> StateFlow允许 '并行' 运行, 共享同样的输入, 输出, 局部变量等
+
+![并行状态机](vx_images/71973512555359.png)
 
 
 
