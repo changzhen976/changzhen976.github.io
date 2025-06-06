@@ -1,6 +1,6 @@
-# Git Page
+# Viki笔记
 
-个人仓库测试页面, 基于`viki`渲染
+笔记播客, 基于`Viki`渲染
 
 - ESPIDF Notebook [Github Repo](https://github.com/changzhen976/ESPIDF-LVGL-NoteBook)
 - HomeAssistant Notebook (On the way)

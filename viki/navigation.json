@@ -2,11 +2,6 @@
     "navigation":
     [
         {
-            "text": "Home",
-            "target": "index.md",
-            "toc": false
-        },
-        {
             "text": "IDF Notebook",
             "target": "ESPIDF-LVGL-NoteBook/vx.json",
             "navi": true,
