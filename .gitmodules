@@ -1,3 +1,6 @@
 [submodule "viki/ESPIDF-LVGL-NoteBook"]
 	path = viki/ESPIDF-LVGL-NoteBook
 	url = https://github.com/changzhen976/ESPIDF-LVGL-NoteBook.git
+[submodule "viki/RadioMaintenance"]
+	path = viki/RadioMaintenance
+	url = https://github.com/changzhen976/AmateurRadioMaintenance.git

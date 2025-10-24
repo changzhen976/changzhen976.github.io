@@ -7,6 +7,13 @@
             "navi": true,
             "navi_index": "Readme.md",
             "navi_expand_level": 1
+        },
+        {
+            "text": "无线电维护文档",
+            "target": "RadioMaintenance/vx.json",
+            "navi": true,
+            "navi_index": "readme.md",
+            "navi_expand_level": 1
         }
     ],
     "actions":
